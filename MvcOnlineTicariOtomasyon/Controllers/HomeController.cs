@@ -22,9 +22,40 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             return View(degerler);
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public ActionResult KategoriEkle()
+        { 
+            return View(); 
+        }
+
+        [HttpPost]
+        public IActionResult KategoriEkle(Kategori k)
         {
-            return View();
+            TicariOtomasyonDb.Add(k);
+            TicariOtomasyonDb.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult KategoriSil(int id)
+        {
+            var ktg = TicariOtomasyonDb.Kategoris.Find(id);
+            TicariOtomasyonDb.Remove(ktg);
+            TicariOtomasyonDb.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult KategoriGetir(int id)
+        {
+            var kategori = TicariOtomasyonDb.Kategoris.Find(id);
+            return View("KategoriGetir", kategori);
+        }
+
+        public ActionResult KategoriGuncelle(Kategori k)
+        {
+            var ktgr = TicariOtomasyonDb.Kategoris.Find(k.KategoriID);
+            ktgr.KategoriAd = k.KategoriAd;
+            TicariOtomasyonDb.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -10,16 +10,19 @@
         <tr>
             <th>ID</th>
             <th>Kategori Adı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
         </tr>
         @foreach (var k in Model)
         {
             <tr>
                 <td>@k.KategoriID</td>
                 <td>@k.KategoriAd</td>
+                <td> <a href="/Home/KategoriSil/@k.KategoriID" class="btn btn-danger">Sil</a> </td>
+                <td> <a href="/Home/KategoriGetir/@k.KategoriID" class="btn btn-success">Güncelle</a></td>
             </tr>
         }
     </table>
 
-
-    <button class="btn btn-primary">Yeni Kategori</button>
+    <a href="/Home/KategoriEkle" class="btn btn-primary"> Kategori Ekle  </a>
 </div>
