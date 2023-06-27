@@ -13,7 +13,8 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile("appsettings.json")
-                .Build();
+                .Build(); 
+
 
             string connectionString = configuration.GetConnectionString("TicariOtomasyonDbConnection");
             optionsBuilder.UseSqlServer(connectionString);
