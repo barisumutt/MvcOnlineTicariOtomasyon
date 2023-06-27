@@ -1,21 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MvcOnlineTicariOtomasyon.Models;
+using MvcOnlineTicariOtomasyon.Models.Siniflar;
 using System.Diagnostics;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly TicariOtomasyonDbContext TicariOtomasyonDb;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(TicariOtomasyonDbContext ticariOtomasyonDb)
         {
-            _logger = logger;
+            TicariOtomasyonDb = ticariOtomasyonDb;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var degerler = TicariOtomasyonDb.Kategoris.ToList();
+            return View(degerler);
         }
 
         public IActionResult Privacy()

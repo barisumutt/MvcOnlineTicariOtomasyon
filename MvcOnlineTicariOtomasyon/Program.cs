@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using MvcOnlineTicariOtomasyon.Models.Siniflar;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<TicariOtomasyonDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TicariOtomasyonDbConnection")));
+
 
 var app = builder.Build();
 

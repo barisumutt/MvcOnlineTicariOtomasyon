@@ -4,6 +4,10 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
 {
     public class TicariOtomasyonDbContext : DbContext
     {
+
+        public TicariOtomasyonDbContext(DbContextOptions<TicariOtomasyonDbContext> options) : base(options)
+        {
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
