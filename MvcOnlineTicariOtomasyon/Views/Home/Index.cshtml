@@ -1,28 +1,8 @@
-﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
-@model List<Kategori>
+﻿
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home PAge";
 }
 
 <div class="text-center" style="margin-top:20px">
-
-    <table class="table table-bordered">
-        <tr>
-            <th>ID</th>
-            <th>Kategori Adı</th>
-            <th>Sil</th>
-            <th>Güncelle</th>
-        </tr>
-        @foreach (var k in Model)
-        {
-            <tr>
-                <td>@k.KategoriID</td>
-                <td>@k.KategoriAd</td>
-                <td> <a href="/Home/KategoriSil/@k.KategoriID" class="btn btn-danger">Sil</a> </td>
-                <td> <a href="/Home/KategoriGetir/@k.KategoriID" class="btn btn-success">Güncelle</a></td>
-            </tr>
-        }
-    </table>
-
-    <a href="/Home/KategoriEkle" class="btn btn-primary"> Kategori Ekle  </a>
+    <h1>Ana Sayfa</h1>
 </div>

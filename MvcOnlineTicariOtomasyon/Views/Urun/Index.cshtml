@@ -1,0 +1,42 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Urun>
+@{
+    ViewData["Title"] = "Kategori";
+}
+<br />
+<div class="text-center" style="margin-top:20px">
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>ÜRÜN</th>
+                <th>MARKA</th>
+                <th>STOK</th>
+                <th>ALIŞ FİYAT</th>
+                <th>SATIŞ FİYAT</th>
+                <th>KATEGORİ</th>
+                <th>GÖRSEL</th>
+            </tr>
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <td>@u.UrunId</td>
+                    <td>@u.UrunAd</td>
+                    <td>@u.Marka</td>
+                    <td>@u.Stok</td>
+                    <td>@u.AlisFiyat</td>
+                    <td>@u.SatisFiyat</td>
+                    <td>@u.Kategori.KategoriAd</td>
+                    <td>@u.UrunGorsel</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>Ürün bulunamadı.</p>
+    }
+    <a href="/Urun/YeniUrun/" class="btn btn-info"> Yeni Ürün </a>
+</div>
+
